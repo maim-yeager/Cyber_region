@@ -7,6 +7,7 @@ import requests
 from urllib.parse import urlparse
 import shutil
 import sys
+import webbrowser
 
 # === CONFIGURATION === #
 NUM_THREADS = min(1000000, (os.cpu_count() or 4) * 10000)
@@ -153,15 +154,19 @@ def start_ui():
     print("║ [3] Unlimited Ulrta Attack                 ║")
     print("║ [4] Random Payload Mutation               ║")
     print("║ [5] MASSIVE MODE (All combined)          ║")
-    print("║ [6] Exit                                  ║")
+    print("║ [6] Join Our Community                                 ║")
     print("╚════════════════════════════════════════════╝")
     print("\033[0m")
 
     try:
         choice = input("🧠 Choose your Attack Mode (1-6): ").strip()
         if choice == "6":
-            print("👋 Exiting...")
-            return
+         os.system('xdg-open https://t.me/+n-KPxPtkjiI1M2I1 ')
+        print("👋 Exiting...")
+        return
+
+          
+          
         target = input("🎯 Enter Target URL: ").strip()
     except (EOFError, OSError):
         print("[⚠️] Input not supported in this environment. Exiting.")
@@ -191,6 +196,13 @@ def start_ui():
         payload_randomizer_attack(domain, target)
     else:
         print("\033[91m[❌] Invalid choice.\033[0m")
+#    if choice == "6":
+#            #  print("👋 Exiting...")
+#               
+#            
+#       os.system('xdg-open https://t.me/+n-KPxPtkjiI1M2I1 ')
+#       print("👋 Exiting...")
+#       return
 
 # === RUN === #
 if __name__ == '__main__':
