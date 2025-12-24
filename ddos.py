@@ -26,7 +26,7 @@ def show_intro():
     print("\033[94m")
     print("""_______________________________________________
 Wellcome to Our Tools🔥
-\033[1;32mThis Tools Developer By Team CR Cyber Regin
+\033[1;32mThis Tools Developer By Team CR Cyber Reign
 __________________________________________________
 ||||||||                            ||||||||
 ||||||||                            ||||||||
@@ -34,10 +34,10 @@ __________________________________________________
 ||||||||                            ||||||||
 ================================================
 \033[1;33mDEVELOPER ▶ MAIM YEAGER
-TEAM ▶︎CR CYBER REGIN
-CEO   ▶︎ALIF ROHMAN.
+TEAM ▶︎CR CYBER Reign
+CEO   ▶︎ALIF REHMAN.
 MY SON:-ABRAR YEAGER
-CHANNEL  ▶︎CYBER REGIN
+CHANNEL  ▶︎CYBER REIGN
 TOOLS NAME ▶︎5X MAIM DDOS TOOLS
 ================================================""")
     print("\033[0m")
@@ -49,7 +49,7 @@ def show_banner():
     show_intro()
     print("""\033[95m
 ╔═════════════════════════════════════════════════════════╗
-  ☠️TEAM CR CYBER REGIN ☠️               
+  ☠️TEAM CR CYBER REIGN ☠️               
  🔥 Coded by: MAIM YEAGER| Proxy + Multi-Vector Engine 🔥    ║
 ╠═════════════════════════════════════════════════\033[0m
 """.format(NUM_THREADS))
